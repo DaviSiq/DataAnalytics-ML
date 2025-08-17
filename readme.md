@@ -1,25 +1,33 @@
-### **Análise de Dados e Machine Learning em E-commerce**
+### **Projeto de Análise de Dados e Machine Learning em E-commerce**
 
-**Objetivo do Estudo:**
-
-Este projeto tem como objetivo principal o aprimoramento e a aplicação prática de conceitos de `Data Science` e `Machine Learning`. A partir do **Olist Brazilian E-commerce Public Dataset**, este estudo visa dominar um pipeline completo de dados, desde a análise exploratória até a implantação de modelos preditivos, servindo como uma demonstração das habilidades adquiridas em todo o processo.
+Este projeto é um estudo de caso prático de um pipeline completo de dados, utilizando o **Olist Brazilian E-commerce Public Dataset**. O objetivo foi explorar os dados a fundo, extrair insights de negócio e construir modelos preditivos para otimizar operações e entender o comportamento do consumidor.
 
 ---
 
-#### **Metodologias e Habilidades Adquiridas:**
+#### **1. Análise Exploratória de Dados (EDA)**
 
-* **Data Wrangling e Engenharia de Features:**
-    * Prática em `ETL` (`Extração, Transformação e Carga`) de dados de múltiplas tabelas.
-    * Utilização de `Pandas` e `Numpy` para limpeza de dados, padronização, e tratamento de valores ausentes.
-    * Criação de features avançadas, como métricas `RFM` (`Recência, Frequência, Valor Monetário`) e variáveis de tempo (`timestamps`), essenciais para a modelagem.
-    * `Data Warehouse`: Utilização e integração com um ambiente de `Snowflake` para o acesso aos dados.
+Com base na análise de gráficos e tabelas, as seguintes descobertas foram feitas:
 
-* **Modelagem Preditiva e Analítica:**
-    * **Análise de Churn:** Construção de um modelo de `classificação` para identificar clientes em risco de evasão, usando `Random Forest` e `XGBoost`.
-    * **Análise de Clusterização:** Segmentação de clientes com base em seu comportamento de compra (`RFM`) usando o algoritmo `K-Means` para encontrar grupos de clientes com perfis distintos.
-    * **Regressão:** Prática com modelos de `regressão` para prever valores contínuos como o `faturamento mensal` (como estudo de caso) e o `valor do próximo pedido` de um cliente.
-    * **Controle de Qualidade:** Identificação e resolução de problemas comuns como `data leakage` e `inconsistência de dados` no pipeline.
+* **Clientes e Pedidos:** O estado de **São Paulo (SP)** concentra o maior volume de pedidos. A performance de entrega da empresa é alta, com a maioria dos pedidos sendo entregue com sucesso.
+* **Comportamento de Compra:** O pico de compras ocorre na **segunda-feira** e durante o período da tarde (**12h às 17h**).
+* **Pagamentos:** O **cartão de crédito** é o método de pagamento preferido, especialmente para compras de maior valor.
+* **Logística:** Embora a maioria das entregas ocorra no prazo, o atraso mais comum é de aproximadamente **72 horas**. Há uma forte correlação entre o tempo de entrega e a satisfação do cliente.
 
-* **Implantação de Modelos (MLOps):**
-    * **Serialização de Modelos:** Uso de `joblib` para salvar modelos treinados e objetos de pré-processamento (`StandardScaler`, `OneHotEncoder`).
-    * **API:** Criação de uma `API RESTful` (`Flask`) para operacionalizar os modelos de `ML`, permitindo que previsões sejam feitas em tempo real a partir de requisições externas.
+---
+
+#### **2. Modelagem Preditiva e Analítica**
+
+Uma série de modelos de Machine Learning foi desenvolvida para abordar desafios de negócio.
+
+* **Previsão de Faturamento Mensal:** Foi feita uma tentativa de predizer o faturamento mensal usando dados de meses anteriores. A modelagem falhou, pois os dados eram escassos, o que serviu como um importante aprendizado sobre as limitações dos dados em um projeto de previsão.
+* **Previsão de Satisfação do Cliente:** Foi criado um modelo de classificação para prever se um cliente ficaria satisfeito (nota 4 ou 5) com base em features como `price`, `freight_value` e características do produto. O modelo alcançou uma precisão de **96%**, com o `Random Forest Classifier` demonstrando um bom desempenho após a remoção de vazamentos de dados.
+* **Análise de Churn:** Um modelo de classificação foi treinado para prever a taxa de evasão de clientes. Usando features de comportamento do cliente (Frequência, Valor, Avaliação), o modelo alcançou uma precisão de aproximadamente **90%** com o algoritmo `XGBoost`.
+* **Segmentação de Clientes:** O algoritmo de clusterização `K-Means` foi utilizado para agrupar clientes em 4 segmentos distintos, identificados pelo `Método do Cotovelo`. A análise dos segmentos revelou grupos como "Clientes Ativos" e "Clientes Insatisfeitos".
+
+---
+
+#### **3. Ferramentas e Tecnologias**
+
+* **Linguagem:** Python
+* **Bibliotecas:** Pandas, Scikit-learn, Matplotlib, Seaborn, XGBoost, Joblib, Flask
+* **Infraestrutura:** Snowflake (Data Warehouse)
