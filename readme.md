@@ -14,7 +14,6 @@ Com base na análise de gráficos e tabelas, as seguintes descobertas foram feit
 * **Comportamento de Compra:** O pico de compras ocorre na **segunda-feira** e durante o período da tarde (**12h às 17h**).
 * **Pagamentos:** O **cartão de crédito** é o método de pagamento preferido, especialmente para compras de maior valor.
 * **Logística:** Embora a maioria das entregas ocorra no prazo, o atraso mais comum é de aproximadamente **72 horas**. Há uma forte correlação entre o tempo de entrega e a satisfação do cliente.
-<img src="graphics/dist_faturamento.png" alt="Logo do projeto">
 
 ---
 
@@ -23,6 +22,7 @@ Com base na análise de gráficos e tabelas, as seguintes descobertas foram feit
 Uma série de modelos de Machine Learning foi desenvolvida para abordar desafios de negócio.
 
 * **Previsão de Faturamento Mensal:** Foi feita uma tentativa de predizer o faturamento mensal usando dados de meses anteriores. A modelagem falhou, pois os dados eram escassos, o que serviu como um importante aprendizado sobre as limitações dos dados em um projeto de previsão.
+<img src="graphics_n_images/dist_faturamento.png" alt="Logo do projeto">
 
 * **Previsão de Satisfação do Cliente:** Foi criado um modelo de classificação para prever se um cliente ficaria satisfeito (nota 4 ou 5) com base em features como `price`, `freight_value` e características do produto. O modelo alcançou uma precisão de **96%**, com o `Random Forest Classifier` demonstrando um bom desempenho após a remoção de vazamentos de dados.
 
