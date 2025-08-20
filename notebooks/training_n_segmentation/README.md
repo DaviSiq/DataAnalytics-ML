@@ -12,11 +12,11 @@ Este diretório contém os artefatos dos modelos preditivos e analíticos desenv
     * **Features:** `price`, `freight_value`, `product_weight_g`, `product_volume_cm3`, e `customer_state`.
     * **Desempenho:** Acurácia de aproximadamente **96%**.
 
-* **Modelo de Previsão de Churn**
-    * **Tipo:** Classificação (`XGBoost Classifier`).
-    * **Objetivo:** Prever a probabilidade de um cliente se tornar inativo (`is_churn = 1`).
-    * **Features:** Métricas `RFM` (`frequency_orders`, `monetary_value`) e `review_score`.
-    * **Desempenho:** Acurácia de aproximadamente **90%**.
+* **Modelo de Previsão do Valor do Frete (Modelo Principal)**
+    * **Tipo:** Regressão (`Random Forest Regressor`).
+    * **Objetivo:** Prever o valor do frete (`freight_value`) com base nas características físicas do produto e nas localizações do cliente e vendedor.
+    * **Features:** `price`, `product_weight_g`, `product_volume_cm3`, `product_length_cm`, `product_height_cm`, `product_width_cm`, `customer_state`, e `seller_state`.
+    * **Desempenho:** `R²` de **0.96**, **MAE** de **R$ 1.17** e **RMSE** de **R$ 3.22**.
 
 * **Modelo de Regressão (Estudo de Caso)**
     * **Tipo:** Regressão (`Random Forest Regressor`, `Linear Regression`).
