@@ -9,7 +9,6 @@ Este projeto é um estudo de caso prático de um pipeline completo de dados, uti
 Com base na análise de gráficos e tabelas, as seguintes descobertas foram feitas:
 
 * **Clientes e Pedidos:** O estado de **São Paulo (SP)** concentra o maior volume de pedidos. A performance de entrega da empresa é alta, com a maioria dos pedidos sendo entregue com sucesso.
-<img src="graphics/dist_estados.png" alt="Logo do projeto">
 
 * **Comportamento de Compra:** O pico de compras ocorre na **segunda-feira** e durante o período da tarde (**12h às 17h**).
 * **Pagamentos:** O **cartão de crédito** é o método de pagamento preferido, especialmente para compras de maior valor.
