@@ -26,6 +26,11 @@ Uma série de modelos de Machine Learning foi desenvolvida para abordar desafios
 
 * **Previsão de Satisfação do Cliente:** Foi criado um modelo de classificação para prever se um cliente ficaria satisfeito (nota 4 ou 5) com base em features como `price`, `freight_value` e características do produto. O modelo alcançou uma precisão de **96%**, com o `Random Forest Classifier` demonstrando um bom desempenho após a remoção de vazamentos de dados.
 
+Segue um exemplo de dados reais do dataset e o resultado da predição.
+
+<img src="graphics_n_images/dados_reais_API.jpg" alt="Logo do projeto">
+<img src="graphics_n_images/predicted_freight_value.jpg" alt="Logo do projeto">
+
 * **Previsão do Valor do Frete (Modelo Principal):**
     * Esta foi a predição mais bem-sucedida e útil do projeto. Um modelo de **regressão** foi treinado para prever o `freight_value` com base nas características físicas e de preço do produto (`product_weight_g`, `product_volume_cm3`, `price`), bem como nas localizações do cliente e do vendedor (`customer_state`, `seller_state`).
     * O modelo alcançou um **R² de 0.96** e um **Erro Médio Absoluto (MAE) de R$ 1.17**, provando que é capaz de prever o custo do frete com alta precisão e de forma realista.
