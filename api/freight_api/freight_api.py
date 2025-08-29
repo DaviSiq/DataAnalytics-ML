@@ -7,9 +7,10 @@ from sklearn.preprocessing import OneHotEncoder
 
 # --- Carregando o Modelo e Pré-processadores ---
 # Define os caminhos para o modelo de Frete
-model_path = os.path.join('models', 'freight_predict', 'rf_regressor_freight.joblib')
-encoder_path = os.path.join( 'models', 'freight_predict', 'freight_encoder.joblib')
-scaler_path = os.path.join('models', 'freight_predict', 'freight_scaler.joblib')
+# 💡 CORREÇÃO: Usando o caminho absoluto a partir do diretório-raiz do Docker (/app)
+model_path = os.path.join('/app', 'models', 'freight_predict', 'rf_regressor_freight.joblib')
+encoder_path = os.path.join('/app', 'models', 'freight_predict', 'freight_encoder.joblib')
+scaler_path = os.path.join('/app', 'models', 'freight_predict', 'freight_scaler.joblib')
 
 try:
     freight_model = joblib.load(model_path)
