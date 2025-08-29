@@ -1,48 +1,61 @@
-### **Projeto de Análise de Dados e Machine Learning em E-commerce**
+### **Pipeline de Análise e Machine Learning para E-commerce**
 
-Este projeto é um estudo de caso prático de um pipeline completo de dados, utilizando o **Olist Brazilian E-commerce Public Dataset**. O objetivo foi explorar os dados a fundo, extrair insights de negócio e construir modelos preditivos para otimizar operações e entender o comportamento do consumidor.
-
----
-
-#### **1. Análise Exploratória de Dados (EDA)**
-
-Com base na análise de gráficos e tabelas, as seguintes descobertas foram feitas:
-
-* **Clientes e Pedidos:** O estado de **São Paulo (SP)** concentra o maior volume de pedidos. A performance de entrega da empresa é alta, com a maioria dos pedidos sendo entregue com sucesso.
-<img src="notebooks/graphics_n_images/dist_estados.png" alt="Logo do projeto">
-
-* **Comportamento de Compra:** O pico de compras ocorre na **segunda-feira** e durante o período da tarde (**12h às 17h**).
-* **Pagamentos:** O **cartão de crédito** é o método de pagamento preferido, especialmente para compras de maior valor.
-* **Logística:** Embora a maioria das entregas ocorra no prazo, o atraso mais comum é de aproximadamente **72 horas**. Há uma forte correlação entre o tempo de entrega e a satisfação do cliente.
+Este projeto é uma solução de dados de ponta a ponta que processa dados de transações do **Olist E-commerce Public Dataset** para gerar insights de negócio e construir modelos preditivos. O objetivo principal foi demonstrar a capacidade de construir um pipeline completo, desde a análise exploratória até a operacionalização de modelos de Machine Learning.
 
 ---
 
-#### **2. Modelagem Preditiva e Analítica**
+#### **1. Destaques e Resultados Principais**
 
-Uma série de modelos de Machine Learning foi desenvolvida para abordar desafios de negócio.
+* **Modelagem Preditiva de Alta Precisão:**
+    * **Previsão de Frete:** Desenvolvido um modelo de regressão para prever o valor do frete (`freight_value`) com base nas características do produto e localizações do cliente/vendedor. O modelo alcançou um **R² de 0.96** e um **Erro Médio Absoluto (MAE) de R$ 1.17**, provando-se como o modelo mais robusto e útil do projeto.
+    * **Previsão de Satisfação:** Construído um modelo de classificação para prever se um cliente ficaria satisfeito. O modelo alcançou uma **Acurácia de 96%**, demonstrando a capacidade de identificar clientes em potencial risco de insatisfação.
+    
+* **Análise de Clusterização e Insights de Negócio:**
+    * O algoritmo `K-Means` foi utilizado para segmentar a base de clientes em 4 grupos distintos, como "Clientes Ativos" e "Clientes Insatisfeitos", permitindo a criação de estratégias de marketing direcionadas.
 
-* **Previsão de Faturamento Mensal:** Foi feita uma tentativa de predizer o faturamento mensal usando dados de meses anteriores. A modelagem falhou, pois os dados eram escassos, o que serviu como um importante aprendizado sobre as limitações dos dados em um projeto de previsão.
+* **Resumo da Análise Exploratória (EDA):**
+    * Identificação de que a maioria dos pedidos se origina em **São Paulo (SP)**.
+    * **Atrasos Regionais**: Os estados com maior frequência de atrasos na entrega são BA, RJ, ES e SC, nesta ordem.
+    * O **cartão de crédito** é o método de pagamento preferido, e o pico de compras ocorre na **segunda-feira** no período da tarde.
+    * **Horário de Pico** : O horário com maior volume de compras é 16h. No entanto, o período entre 12h e 17h é o mais ativo do dia, seguido de um segundo pico entre 20h e 21h. 
+    
+---
 
-<img src="notebooks/graphics_n_images/dist_faturamento.png" alt="Logo do projeto">
+#### **2. Metodologias e Tecnologias**
 
-* **Previsão de Satisfação do Cliente:** Foi criado um modelo de classificação para prever se um cliente ficaria satisfeito (nota 4 ou 5) com base em features como `price`, `freight_value` e características do produto. O modelo alcançou uma precisão de **96%**, com o `Random Forest Classifier` demonstrando um bom desempenho após a remoção de vazamentos de dados.
-
-Segue um exemplo de dados reais do dataset e o resultado da predição.
-
-<img src="notebooks/graphics_n_images/dados_reais_API.jpg" alt="Logo do projeto">
-Exemplo de requisição via Postman
-<img src="notebooks/graphics_n_images/Postman_resultado.jpg" alt="Logo do projeto">
-
-* **Previsão do Valor do Frete (Modelo Principal):**
-    * Esta foi a predição mais bem-sucedida e útil do projeto. Um modelo de **regressão** foi treinado para prever o `freight_value` com base nas características físicas e de preço do produto (`product_weight_g`, `product_volume_cm3`, `price`), bem como nas localizações do cliente e do vendedor (`customer_state`, `seller_state`).
-    * O modelo alcançou um **R² de 0.96** e um **Erro Médio Absoluto (MAE) de R$ 1.17**, provando que é capaz de prever o custo do frete com alta precisão e de forma realista.
-
-* **Segmentação de Clientes:** O algoritmo de clusterização `K-Means` foi utilizado para agrupar clientes em 4 segmentos distintos, identificados pelo `Método do Cotovelo`. A análise dos segmentos revelou grupos como "Clientes Ativos" e "Clientes Insatisfeitos".
+* **Data Wrangling:** Processamento de dados de `Data Warehouse` (`Snowflake`), limpeza e engenharia de features com `Pandas`.
+* **Modelagem:** Aplicação de algoritmos de `Machine Learning` como `Random Forest`, `XGBoost`, `K-Means` e `Logistic Regression`.
+* **Implantação:** Demonstração de um fluxo de trabalho de deploy de `API` usando `Docker`, tornando o projeto portátil e pronto para produção.
+* **Ferramentas:** Python, Scikit-learn, Joblib, Matplotlib, Docker.
 
 ---
 
-#### **3. Ferramentas e Tecnologias**
+#### **3. Como Testar o Modelo de Frete Localmente**
 
-* **Linguagem:** Python
-* **Bibliotecas:** Pandas, Scikit-learn, Matplotlib, Seaborn, XGBoost, Joblib, Flask
-* **Infraestrutura:** Snowflake (Data Warehouse)
+Para testar a API, use um terminal para rodar o contêiner e outro para enviar a requisição JSON.
+
+1.  **Construir a Imagem Docker:**
+    ```sh
+    docker build -t freight-api .
+    ```
+2.  **Rodar a API:**
+    ```sh
+    docker run -p 5000:5000 freight-api
+    ```
+3.  **Enviar a Requisição:**
+    ```sh
+    # Exemplo de requisição Postman
+    POST [http://127.0.0.1:5000/predict_freight](http://127.0.0.1:5000/predict_freight)
+    Content-Type: application/json
+    
+    {
+      "price": 59.90,
+      "product_weight_g": 1000,
+      "product_volume_cm3": 5000,
+      "product_length_cm": 30,
+      "product_height_cm": 15,
+      "product_width_cm": 20,
+      "customer_state": "SP",
+      "seller_state": "RJ"
+    }
+    ```
