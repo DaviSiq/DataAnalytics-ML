@@ -4,7 +4,7 @@ Este projeto, que é uma continuação direta do projeto de [arquitetura de dado
 
 ---
 #### **Arquitetura**
-![Texto alternativo da imagem](arquitetura.png)
+<img src="arquitetura.png" alt="Descrição da Imagem" width="80%" />
 
 #### **Destaques e Resultados Principais**
 
