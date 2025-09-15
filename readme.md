@@ -1,10 +1,12 @@
 ### **Pipeline de Análise e Machine Learning para E-commerce**
 
-Este projeto é uma solução de dados de ponta a ponta que processa dados de transações do **Olist E-commerce Public Dataset** para gerar insights de negócio e construir modelos preditivos. O objetivo principal foi demonstrar a capacidade de construir um pipeline completo, desde a análise exploratória até a operacionalização de modelos de Machine Learning.
+Este projeto, que é uma continuação direta do projeto de [arquitetura de dados e processamento](https://github.com/DaviSiq/DataPlatform-Pipelines), é uma solução de dados de ponta a ponta que processa dados de transações do **Olist E-commerce Public Dataset** para gerar insights de negócio e construir modelos preditivos. É uma continuação direta deste outro projeto de . O objetivo principal foi demonstrar a capacidade de construir um pipeline completo, desde a análise exploratória até a operacionalização de modelos de Machine Learning.
 
 ---
+#### **Arquitetura**
+![Texto alternativo da imagem](arquitetura.png)
 
-#### **1. Destaques e Resultados Principais**
+#### **Destaques e Resultados Principais**
 
 * **Modelagem Preditiva de Alta Precisão:**
     * **Previsão de Frete:** Desenvolvido um modelo de regressão para prever o valor do frete (`freight_value`) com base nas características do produto e localizações do cliente/vendedor. O modelo alcançou um **R² de 0.96** e um **Erro Médio Absoluto (MAE) de R$ 1.17**, provando-se como o modelo mais robusto e útil do projeto.
@@ -21,7 +23,7 @@ Este projeto é uma solução de dados de ponta a ponta que processa dados de tr
     
 ---
 
-#### **2. Metodologias e Tecnologias**
+#### **Metodologias e Tecnologias**
 
 * **Data Wrangling:** Processamento de dados de `Data Warehouse` (`Snowflake`), limpeza e engenharia de features com `Pandas`.
 * **Modelagem:** Aplicação de algoritmos de `Machine Learning` como `Random Forest`, `XGBoost`, `K-Means` e `Logistic Regression`.
@@ -30,7 +32,7 @@ Este projeto é uma solução de dados de ponta a ponta que processa dados de tr
 
 ---
 
-#### **3. Como Testar o Modelo de Frete Localmente**
+#### **Como Testar o Modelo de Frete Localmente**
 
 Para testar a API, use um terminal para rodar o contêiner e outro para enviar a requisição JSON.
 
